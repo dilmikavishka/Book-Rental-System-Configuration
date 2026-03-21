@@ -5,20 +5,20 @@ spring:
       server:
         webflux:
           routes:
-            - id: student-service
-              uri: lb://STUDENT-SERVICE
+            - id: user-service
+              uri: lb://USER-SERVICE
               predicates:
-                - Path=/api/v1/students/**
+                - Path=/api/v1/users/**
 
-            - id: program-service
-              uri: lb://PROGRAM-SERVICE
+            - id: book-service
+              uri: lb://BOOK-SERVICE
               predicates:
-                - Path=/api/v1/programs/**
+                - Path=/api/v1/books/**
 
-            - id: enrollment-service
-              uri: lb://ENROLLMENT-SERVICE
+            - id: rental-service
+              uri: lb://RENTAL-SERVICE
               predicates:
-                - Path=/api/v1/enrollments/**
+                - Path=/api/v1/rentals/**
 
           default-filters:
             - PreserveHostHeader
@@ -29,5 +29,6 @@ spring:
                 allowedOrigins: "*"
                 allowed-methods: "*"
                 allowed-headers: "*"
+
 server:
   port: 7000
